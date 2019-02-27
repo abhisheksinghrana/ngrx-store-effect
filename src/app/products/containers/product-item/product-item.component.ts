@@ -1,31 +1,16 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
 
-import { Pizza } from '../../models/pizza.model';
-import { PizzasService } from '../../services/pizzas.service';
+import { Pizza } from "../../models/pizza.model";
+import { PizzasService } from "../../services/pizzas.service";
 
-import { Topping } from '../../models/topping.model';
-import { ToppingsService } from '../../services/toppings.service';
+import { Topping } from "../../models/topping.model";
+import { ToppingsService } from "../../services/toppings.service";
 
 @Component({
-  selector: 'product-item',
-  styleUrls: ['product-item.component.scss'],
-  template: `
-    <div
-      class="product-item">
-      <pizza-form
-        [pizza]="pizza"
-        [toppings]="toppings"
-        (selected)="onSelect($event)"
-        (create)="onCreate($event)"
-        (update)="onUpdate($event)"
-        (remove)="onRemove($event)">
-        <pizza-display
-          [pizza]="visualise">
-        </pizza-display>
-      </pizza-form>
-    </div>
-  `,
+  selector: "app-product-item",
+  templateUrl: "./product-item.component.html",
+  styleUrls: ["./product-item.component.scss"]
 })
 export class ProductItemComponent implements OnInit {
   pizza: Pizza;
@@ -43,7 +28,7 @@ export class ProductItemComponent implements OnInit {
     this.pizzaService.getPizzas().subscribe(pizzas => {
       const param = this.route.snapshot.params.id;
       let pizza;
-      if (param === 'new') {
+      if (param === "new") {
         pizza = {};
       } else {
         pizza = pizzas.find(pizza => pizza.id == parseInt(param, 10));
@@ -81,7 +66,7 @@ export class ProductItemComponent implements OnInit {
   }
 
   onRemove(event: Pizza) {
-    const remove = window.confirm('Are you sure?');
+    const remove = window.confirm("Are you sure?");
     if (remove) {
       this.pizzaService.removePizza(event).subscribe(() => {
         this.router.navigate([`/products`]);

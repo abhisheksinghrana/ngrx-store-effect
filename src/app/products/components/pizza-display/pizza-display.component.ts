@@ -21,25 +21,14 @@ export const DROP_ANIMATION = trigger("drop", [
 ]);
 
 @Component({
-  selector: "pizza-display",
+  selector: "app-pizza-display",
   animations: [DROP_ANIMATION],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ["pizza-display.component.scss"],
-  template: `
-    <div class="pizza-display">
-      <div class="pizza-display__base">
-        <img src="/assets/img/pizza.svg" />
-        <img
-          *ngFor="let topping of pizza?.toppings; index as i"
-          src="/assets/img/toppings/{{ topping.name }}.svg"
-          [style.zIndex]="i"
-          class="pizza-display__topping"
-          @drop
-        />
-      </div>
-    </div>
-  `
+  templateUrl: "./pizza-display.component.html",
+  styleUrls: ["./pizza-display.component.scss"]
 })
 export class PizzaDisplayComponent {
   @Input() pizza: Pizza;
+
+  constructor() {}
 }
