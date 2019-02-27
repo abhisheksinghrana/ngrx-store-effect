@@ -1,5 +1,5 @@
 <div class="product-item">
-  <pizza-form
+  <app-pizza-form
     [pizza]="pizza"
     [toppings]="toppings"
     (selected)="onSelect($event)"
@@ -7,6 +7,6 @@
     (update)="onUpdate($event)"
     (remove)="onRemove($event)"
   >
-    <pizza-display [pizza]="visualise"> </pizza-display>
-  </pizza-form>
+    <app-pizza-display [pizza]="visualise"></app-pizza-display>
+  </app-pizza-form>
 </div>

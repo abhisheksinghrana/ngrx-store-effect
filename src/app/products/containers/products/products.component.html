@@ -8,6 +8,9 @@
     <div *ngIf="!pizzas?.length">
       No pizzas, add one to get started.
     </div>
-    <pizza-item *ngFor="let pizza of pizzas" [pizza]="pizza"> </pizza-item>
+    <app-pizza-item
+      *ngFor="let pizza of pizzas"
+      [pizza]="pizza"
+    ></app-pizza-item>
   </div>
 </div>

@@ -3,9 +3,9 @@ import {
   Input,
   forwardRef,
   ChangeDetectionStrategy
-} from "@angular/core";
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { Topping } from "../../models/topping.model";
+} from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Topping } from '../../models/topping.model';
 
 const PIZZA_TOPPINGS_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
@@ -14,11 +14,11 @@ const PIZZA_TOPPINGS_ACCESSOR = {
 };
 
 @Component({
-  selector: "app-pizza-toppings",
+  selector: 'app-pizza-toppings',
   providers: [PIZZA_TOPPINGS_ACCESSOR],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: "./pizza-toppings.component.html",
-  styleUrls: ["./pizza-toppings.component.scss"]
+  templateUrl: './pizza-toppings.component.html',
+  styleUrls: ['./pizza-toppings.component.scss']
 })
 export class PizzaToppingsComponent implements ControlValueAccessor {
   @Input() toppings: Topping[] = [];
